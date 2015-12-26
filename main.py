@@ -10,6 +10,7 @@ else:
     print('Working folder successfuly created')
 os.chdir('wallhaven')
 allpic=input('Enter current amount of pictures: ')
+allpic = int(str(allpic))
 while downloads < allpic:
     ext='jpg'
     picid=random.randint(1,allpic)
