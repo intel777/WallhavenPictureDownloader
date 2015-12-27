@@ -1,7 +1,6 @@
 import requests as r, random, os
 
-allpic=''
-downloads=0
+downloads  =0
 
 if os.path.exists('wallhaven'):
     print('Folder alredy exists')
@@ -9,9 +8,8 @@ else:
     os.makedirs('wallhaven')
     print('Working folder successfuly created')
 os.chdir('wallhaven')
-allpic=input('Enter current amount of pictures: ')
-allpic = int(str(allpic))
-while downloads < allpic:
+allpic = int(input('Enter current amount of pictures: '))
+for donwloads in range(allpic, 0, -1):
     ext='jpg'
     picid=random.randint(1,allpic)
     pic=r.get('http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-{}.{}'.format(picid,ext))
