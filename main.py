@@ -1,6 +1,6 @@
 import requests as r, random, os
 
-downloads = 0
+downloads = 1
 
 if os.path.exists('wallhaven'):
     print('Folder alredy exists')
