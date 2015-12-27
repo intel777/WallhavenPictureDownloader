@@ -1,6 +1,6 @@
 import requests as r, random, os
 
-downloads  =0
+downloads = 0
 
 if os.path.exists('wallhaven'):
     print('Folder alredy exists')
@@ -10,17 +10,17 @@ else:
 os.chdir('wallhaven')
 allpic = int(input('Enter current amount of pictures: '))
 for donwloads in range(allpic, 0, -1):
-    ext='jpg'
-    picid=random.randint(1,allpic)
-    pic=r.get('http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-{}.{}'.format(picid,ext))
+    ext = 'jpg'
+    picid = random.randint(1,allpic)
+    pic = r.get('http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-{}.{}'.format(picid,ext))
     if pic == '<Response [404]>':
-        ext='png'
-        pic=r.get('http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-{}.{}'.format(picid,ext))
-    picname='wallhaven-{}.{}'.format(picid,ext)
+        ext = 'png'
+        pic = r.get('http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-{}.{}'.format(picid,ext))
+    picname = 'wallhaven-{}.{}'.format(picid,ext)
     if os.path.exists(picname):
         print('Image with ID:{} alredy exists'.format(picid))
     else:
-        out=open('{}'.format(picname), 'wb')
+        out = open('{}'.format(picname), 'wb')
         out.write(pic.content)
         out.close()
     if os.path.getsize(picname) == 162:
